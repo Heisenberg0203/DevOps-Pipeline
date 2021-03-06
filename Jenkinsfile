@@ -31,9 +31,28 @@ pipeline {
           steps{
             script {
               dockerImage = docker.build "$image:${env.BUILD_NUMBER}"
-              dockerImageLatest = docker.build "image:latest"
+              dockerImageLatest = docker.build "$image:latest"
             }
           }
         }
+        stage('Deploy Image') {
+          steps{
+            script {
+              docker.withRegistry( '', registryCredential ) {
+                dockerImage.push()
+                dockerImageLatest.push()
+              }
+            }
+          }
+        }
+        stage('Remove Unused docker image') {
+          steps{
+            script{
+            sh "docker rmi $dockerImage";
+            sh "docker rmi $dockerImageLatest"
+          }
+          }
+        }
+
     }
 }
