@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+    environment {
+        image='rushikesh0203/spe_calculator'
+        dockerImage = ''
+        dockerImageLatest = ''
+   }
     stages {
         stage('Git Checkout') {
             steps {
@@ -22,6 +26,14 @@ pipeline {
                     sh 'mvn -Dmaven.test.skip=true package '
                 }
             }
+        }
+        stage('Building image') {
+          steps{
+            script {
+              dockerImage = docker.build image + ":$(env.BUILD_NUMBER)"
+              dockerImageLatest = docker.build image + ":latest"
+            }
+          }
         }
     }
 }
