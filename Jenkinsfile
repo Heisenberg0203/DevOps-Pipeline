@@ -38,7 +38,7 @@ pipeline {
         stage('Deploy Image') {
           steps{
             script {
-              docker.withRegistry( '', 'docker' ) {
+              docker.withRegistry( '', 'Docker' ) {
                 dockerImage.push()
                 dockerImageLatest.push()
               }
