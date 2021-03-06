@@ -1,0 +1,11 @@
+---
+  - name: Deploy Jar to production hosts
+    hosts: production_hosts
+    tasks:
+      - name: pull image
+        docker_image:
+          name: rushikesh0203/spe_calculator
+      - name: Create a data container
+        docker_container:
+          name: production_calc
+          image: rushikesh0203/spe_calculator
