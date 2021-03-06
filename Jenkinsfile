@@ -48,13 +48,8 @@ pipeline {
         stage('Remove Unused docker image') {
           steps{
             script{
-            sh "docker rmi $dockerImage";
-            }
+            sh "docker rmi $image:latest;docker rmi $image:${env.BUILD_NUMBER}";
           }
-          steps{
-            script{
-            sh "docker rmi $dockerImageLatest";
-            }
           }
         }
 
