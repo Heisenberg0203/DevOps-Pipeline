@@ -16,5 +16,12 @@ pipeline {
                 }
             }
         }
+        stage('Build executable jar') {
+            steps {
+                script{
+                    sh 'mvn -Dmaven.test.skip=true package '
+                }
+            }
+        }
     }
 }
