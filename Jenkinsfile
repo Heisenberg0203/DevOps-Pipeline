@@ -49,8 +49,12 @@ pipeline {
           steps{
             script{
             sh "docker rmi $dockerImage";
-            sh "docker rmi $dockerImageLatest"
+            }
           }
+          steps{
+            script{
+            sh "docker rmi $dockerImageLatest";
+            }
           }
         }
 
