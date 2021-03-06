@@ -30,7 +30,7 @@ pipeline {
         stage('Building image') {
           steps{
             script {
-              dockerImage = docker.build "image:$(env.BUILD_NUMBER)"
+              dockerImage = docker.build "$image:${env.BUILD_NUMBER}"
               dockerImageLatest = docker.build "image:latest"
             }
           }
