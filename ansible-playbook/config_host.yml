@@ -1,0 +1,7 @@
+---
+  - name: Install docker
+    become: true
+    become_user: root
+    command: apt-get install -y docker python3
+  - name: Install python plugin for docker
+    command: pip3 install docker
