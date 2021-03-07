@@ -49,6 +49,9 @@ public class Driver {
     public static void printOption(){
         System.out.println("Enter the appropriate option");
         System.out.println("1: SquareRoot");
+        System.out.println("2: Factorial");
+        System.out.println("3: log");
+        System.out.println("4: power");
         System.out.println("5: Exit");
     }
 
