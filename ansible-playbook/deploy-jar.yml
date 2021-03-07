@@ -5,7 +5,21 @@
       - name: pull image
         docker_image:
           name: rushikesh0203/spe_calculator
+          source: pull
+      - name: stop a container
+        docker_container:
+          name: production_calc
+          state: stopped
+        ignore_errors: yes
+      - name: remove existing container
+        command: docker rm  production_calc
+        ignore_errors: yes
       - name: Create a data container
         docker_container:
           name: production_calc
           image: rushikesh0203/spe_calculator
+          state: stopped
+          interactive: yes
+      - name: clear
+        docker_prune:
+          images: yes
