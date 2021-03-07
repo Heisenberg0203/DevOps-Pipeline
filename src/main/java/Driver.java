@@ -62,6 +62,7 @@ public class Driver {
             catch (Exception ex){
                 System.out.println("Exception occured: "+ex.toString());
             }
+            scan.nextLine();
         }
 
     }
