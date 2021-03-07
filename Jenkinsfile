@@ -52,6 +52,14 @@ pipeline {
           }
           }
         }
-
+        stage('Deploy Containers to Hosts') {
+          steps{
+            script {
+                ansiblePlaybook becomeUser: null, installation: 'Ansible', inventory: 'ansible-playbook/hosts', playbook: 'ansible-playbook/deploy-jar.yml', sudoUser: null
+              }
+            }
+          }
+        }
     }
 }
+
