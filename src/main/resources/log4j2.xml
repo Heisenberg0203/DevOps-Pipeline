@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{dd/MMM/yyy:HH:mm:ss SSS} [%t] %level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="FileLogger" fileName="elk/logs/calc_logs.log" append="true">
+            <PatternLayout pattern="%d{dd/MMM/yyy:HH:mm:ss SSS} [%t] %level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+<!--        <Logger name="packagename" level="debug">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--        </Logger>-->
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>
