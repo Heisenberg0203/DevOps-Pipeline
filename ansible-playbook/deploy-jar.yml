@@ -20,6 +20,6 @@
           image: rushikesh0203/spe_calculator
           state: stopped
           interactive: yes
-      - name: clear
+      - name: Remove unwanted Images
         docker_prune:
           images: yes
