@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class Driver {
-    static Logger logger = LogManager.getLogger(Driver.class.getName());
+    private static final Logger logger = LogManager.getLogger(Driver.class.getName());
     public static void main(String[] args) {
         Scanner scan  = new Scanner(System.in);
 
