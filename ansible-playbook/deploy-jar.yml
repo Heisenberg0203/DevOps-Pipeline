@@ -20,6 +20,8 @@
           image: rushikesh0203/spe_calculator
           state: stopped
           interactive: yes
+          volumes:
+            - /home/rushikesh/Documents/Spe_calculator/elk/logs/calc_logs.log:/elk/logs/calc_logs.log
       - name: Remove unwanted Images
         docker_prune:
           images: yes
