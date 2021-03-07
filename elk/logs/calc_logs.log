@@ -1,0 +1,12 @@
+08/Mar/2021:00:19:03 607 [main] INFO Driver - SquareRoot input= 2.0 output= 1.4142135
+08/Mar/2021:00:19:06 441 [main] INFO Driver - Factorial input= 2 output= 2.0
+08/Mar/2021:00:19:09 914 [main] INFO Driver - Logarithm input= 5.0 output= 1.791759469228055
+08/Mar/2021:00:19:17 863 [main] INFO Driver - Power input= 2.0,3.0 output= 8.0
+08/Mar/2021:00:19:25 311 [main] ERROR Driver - exception Invalid input
+08/Mar/2021:00:19:33 203 [main] ERROR Driver - exception Invalid input
+08/Mar/2021:00:19:37 834 [main] ERROR Driver - exception Invalid input
+08/Mar/2021:00:19:41 685 [main] ERROR Driver - exception Invalid input
+08/Mar/2021:00:19:45 164 [main] ERROR Driver - Invalid_Option invalid option chosen
+08/Mar/2021:00:19:45 165 [main] ERROR Driver - exception  Invalid option
+08/Mar/2021:00:19:49 099 [main] ERROR Driver - exception  Invalid option
+08/Mar/2021:00:19:51 068 [main] INFO Driver - exit status=0
