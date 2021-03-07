@@ -9,28 +9,48 @@ public class Driver {
                 int option = scan.nextInt();
                 if(option==1){
                     System.out.println("Enter Number:");
+                    try{
                     float num = scan.nextFloat();
-                    float ans = findsquareRoot(num);
-                    System.out.println("SquareRoot of "+num+" is "+ans);
+                        float ans = findsquareRoot(num);
+                        System.out.println("SquareRoot of "+num+" is "+ans);
+                    }
+                    catch (Exception ex){
+                        System.out.println("Exception occured: "+ex.toString());
+                    }
                 }
                 if(option==2){
                     System.out.println("Enter Number:");
+                    try{
                     int num = scan.nextInt();
-                    double ans = findfactorial(num);
-                    System.out.println("factoial of "+ num +" is "+ ans );
+                        double ans = findfactorial(num);
+                        System.out.println("factoial of "+ num +" is "+ ans );
+                    }
+                    catch (Exception ex){
+                        System.out.println("Exception occured: "+ex.toString());
+                    }
                 }
                 if(option==3){
                     System.out.println("Enter Number:");
-                    float num = scan.nextFloat();
-                    double ans = findlog(num);
-                    System.out.println("Log of "+ num +" is "+ ans );
+                    try {
+                        float num = scan.nextFloat();
+                        double ans = findlog(num);
+                        System.out.println("Log of "+ num +" is "+ ans );
+                    }
+                    catch (Exception ex){
+                        System.out.println("Exception occured: "+ex.toString());
+                    }
                 }
                 if(option==4){
                     System.out.println("Enter 2 Numbers:");
-                    float a = scan.nextInt();
-                    float b = scan.nextInt();
-                    double ans = findpower(a,b);
-                    System.out.println(a+" raise to "+ b +" is "+ ans );
+                    try {
+                        float a = scan.nextInt();
+                        float b = scan.nextInt();
+                        double ans = findpower(a,b);
+                        System.out.println(a+" raise to "+ b +" is "+ ans );
+                    }
+                    catch (Exception ex){
+                        System.out.println("Exception occured: "+ex.toString());
+                    }
                 }
                 else if(option==5){
                     break;
