@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                script{
+                    git credentialsId: 'Github', url: 'https://github.com/Heisenberg0203/Spe_Devops_Calculator'
+                }
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                script{
+                    sh 'mvn clean test'
+                }
+            }
+        }
+        stage('Build executable jar') {
+            steps {
+                script{
+                    sh 'mvn -Dmaven.test.skip=true package '
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script{
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'docker-server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//opt//docker', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.jar'), sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker build -t rushikesh0203/spe_calculator:latest /opt/docker/;', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//opt//docker', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'Dockerfile')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+                }
+            }
+        }
+        stage('Deploy Image') {
+            steps {
+                script{
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'docker-server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker login -u username -p password; docker push rushikesh0203/spe_calculator:latest; ', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+                }
+            }
+        }
+        stage('Remove Unwanted Images') {
+            steps {
+                script{
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'docker-server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker rmi rushikesh0203/spe_calculator:latest; rm -r /opt/docker/*', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+                }
+            }
+        }
+    }
+}
