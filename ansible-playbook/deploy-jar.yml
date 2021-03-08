@@ -22,8 +22,8 @@
           interactive: yes
           volumes:
             - type:bind
-              source:/home/rushikesh/Documents/Spe_calculator/elk/logs/
-              target:/elk/logs/
+              source:/home/rushikesh/Documents/Spe_calculator/elk/logs/calc_logs.log
+              target:/elk/logs/calc_logs.log
       - name: Remove unwanted Images
         docker_prune:
           images: yes

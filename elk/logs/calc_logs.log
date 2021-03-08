@@ -1,0 +1,7 @@
+08/Mar/2021:10:18:12 610 [main] ERROR Driver - Invalid_Option invalid option chosen
+08/Mar/2021:10:18:12 613 [main] ERROR Driver - exception  Invalid option
+08/Mar/2021:10:18:15 319 [main] INFO Driver - SquareRoot input= 1.0 output= 1.0
+08/Mar/2021:10:18:17 044 [main] INFO Driver - SquareRoot input= 2.0 output= 1.4142135
+08/Mar/2021:10:18:17 659 [main] ERROR Driver - Invalid_Option invalid option chosen
+08/Mar/2021:10:18:17 659 [main] ERROR Driver - exception  Invalid option
+08/Mar/2021:10:18:19 032 [main] INFO Driver - exit status=0
