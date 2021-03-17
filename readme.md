@@ -14,20 +14,24 @@ The Software is build with the help of DevOps methodology where each commit of c
 
 DevOps Stack:
 
-Build: Maven
+	Build: Maven
 
-Test: Junit
+	Test: Junit
 
-Continuous Integration: Jenkins
+	Continuous Integration: Jenkins
 
-Continuous Delivery: Docker
+	Continuous Delivery: Docker
 
-Configuration Management: Ansible
+	Configuration Management: Ansible
 
-Continuous Deployment: Ansible
+	Continuous Deployment: Ansible
 
-Continous Monitoring: Log4j2 and ELK.
+	Continous Monitoring: Log4j2 and ELK.
 
 The Complete process is explained in the image below:
 
 ![workflow](./images/spe_workflow.png)
+
+The DevOps Pipeline:
+
+![pipeline](./images/spe_pipeline.png)
